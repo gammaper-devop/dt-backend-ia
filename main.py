@@ -19,8 +19,8 @@ def obtener_pronostico(
     equipo2: str = Query(..., description="Nombre del segundo equipo (ej: France)")
 ):
     # Capitalizar nombres para evitar errores de tipeo del usuario
-    eq1 = equipo1.strip().title()
-    eq2 = equipo2.strip().title()
+    eq1 = equipo1.strip().title().replace("Dr Congo", "DR Congo")
+    eq2 = equipo2.strip().title().replace("Dr Congo", "DR Congo")
     
     resultado = simulador.simular(eq1, eq2)
     return resultado
